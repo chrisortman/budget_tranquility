@@ -12,6 +12,8 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
