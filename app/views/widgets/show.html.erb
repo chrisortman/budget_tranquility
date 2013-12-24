@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @widget.title %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @widget.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @widget.price %>
+</p>
+
+<p>
+  <strong>Sellable:</strong>
+  <%= @widget.sellable %>
+</p>
+
+<%= link_to 'Edit', edit_widget_path(@widget) %> |
+<%= link_to 'Back', widgets_path %>

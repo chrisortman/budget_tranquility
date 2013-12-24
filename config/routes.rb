@@ -1,5 +1,10 @@
 BudgetTranquility::Application.routes.draw do
-  get "registration/new"
-  post "registration/create"
+  resources :widgets
+
+  get  'login', to: "sessions#new", as: 'login'
+  post 'login', to: "sessions#create"
+  get  'logout', to: "sessions#destroy", as: 'logout'
+  get  'register', to: "registration#new", as: 'register'
+  post 'register', to: "registration#create"
   root :to => 'visitors#new'
 end

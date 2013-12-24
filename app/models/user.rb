@@ -3,6 +3,8 @@ require 'bcrypt'
 class User < ActiveRecord::Base
 	attr_accessor :new_password, :new_password_confirmation
 
+	validates :email, presence: true, uniqueness: true
+	
 	validates_confirmation_of :new_password
 
 	before_save do |user|
