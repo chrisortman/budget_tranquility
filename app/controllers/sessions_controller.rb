@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
+    puts "Email: #{params[:email]}  Password: #{params[:password]}"
+
   	if user = User.authenticate(params[:email], params[:password])
   		session[:user_id] = user.id
   		render :text => "Logged in"
@@ -14,4 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
   end
+
+  
 end

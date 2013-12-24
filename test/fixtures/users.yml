@@ -1,10 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  name: MyString
-  hashed_password: MyString
-
+  email: test@home.lan
+  name: Testey Testerson
+  hashed_password: $2a$10$wkwoZKBCSZ9bqa8QSccJ/.vWGkixK/WsZdLHXP.TfACMumKlDYqUG
 two:
   email: MyString
   name: MyString
