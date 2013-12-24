@@ -1,14 +1,15 @@
 class RegistrationController < ApplicationController
   def new
-
+    @user = User.new
   end
 
   def create
-  	u = User.new(params[:user])
-  	if u.save
-  		render :text => 'Hello'
+    puts params
+  	@user = User.new(user_params)
+  	if @user.save
+  		redirect_to(login_url,notice: 'User created successfully, please log in')
   	else
-  		redirect_to(register_url,notice: 'Missing required information')
+  		render action: 'new'
   	end
   end
 
