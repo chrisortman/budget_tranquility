@@ -17,5 +17,7 @@ class RegistrationControllerTest < ActionController::TestCase
                            new_password: 'welcome',
                            new_password_confirmation: 'welcome'}
     end
+
+    assert User.authenticate('chrisortman@gmail.com','welcome')
   end
 end
