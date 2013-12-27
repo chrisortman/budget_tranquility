@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'high_voltage'
-gem 'simple_form'
+gem 'simple_form', github: 'wtfiwtz/simple_form_bootstrap3'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 group :development do
