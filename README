@@ -1,6 +1,17 @@
 Budget Tranquility
 ========================
 
+My wife and I track our budget using a simple spreadsheet
+
+We use only cash for all our purchases and only want to keep in our checking account
+enough money to cover recurring expenses that we have setup for autopay.
+
+In our spreadsheet we track our monthly expenses and amounts we need for each 'envelope'. We use envelopes for cash and separate out things such as groceries and clothing.
+
+I wanted to refresh myself on Rails so decided to build this setup as a new rails app.
+
+
+
 This application was generated with the rails_apps_composer gem:
 https://github.com/RailsApps/rails_apps_composer
 provided by the RailsApps Project:
@@ -17,3 +28,5 @@ Preferences:
 ________________________
 
 License
+
+Be excellent to each other
