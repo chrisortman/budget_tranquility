@@ -6,5 +6,6 @@ BudgetTranquility::Application.routes.draw do
   get  'logout', to: "sessions#destroy", as: 'logout'
   get  'register', to: "registration#new", as: 'register'
   post 'register', to: "registration#create"
+  get 'home', to: "home#index", as: 'home'
   root :to => 'visitors#new'
 end

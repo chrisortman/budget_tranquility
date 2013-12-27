@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   	if user = User.authenticate(params[:email], params[:password])
   		session[:user_id] = user.id
-  		render :text => "Logged in"
+  		redirect_to home_url
   	else
   		redirect_to({ :action =>:new }, alert: "Invalid username or password")
   	end

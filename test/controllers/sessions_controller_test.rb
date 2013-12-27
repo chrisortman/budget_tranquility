@@ -12,7 +12,7 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should be able to log in" do
     post :create,  {email:@user.email, password:'welcome'}
-    assert_response :success
+    assert_redirected_to home_url
     assert_equal @user.id, session[:user_id]
   end
 
