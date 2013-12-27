@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MonthlyBill
+class RecurringTransaction
   def initialize(description: 'Recurring payment', amount: 0.0)
     @description = description
     @amount = amount
@@ -16,25 +16,32 @@ class MonthlyBill
   end
 end
 
-class MonthlyBillTest < ActiveSupport::TestCase
+describe RecurringTransaction do
 
-  setup do
-    @b = MonthlyBill.new(description: 'Water', amount: 50.00)
-    @b.pay_monthly(day: 15)
+  before do
+    @tx = RecurringTransaction.new(description: 'Water', amount: 50.00)
   end
 
-  test "can pay on certain day of month" do
+  describe "recurs on a certain day of the month" do
 
-    assert_equal Date.new(2013,12,15), @b.next_payment(Date.new(2013,12,6)) 
+    before do
+      @tx.pay_monthly(day: 15)
+    end
+
+    it "can figure out the next payment" do
+      @tx.next_payment(Date.new(2013,12,6)).must_equal Date.new(2013,12,15)
+    end
+
+    it "can advance a month if needed" do
+      @tx.next_payment(Date.new(2013,12,16)).must_equal Date.new(2014,1,15)
+    end
+
+    it "will pick closest next day if day is out of range" do
+      @tx.pay_monthly(day:31)
+      @tx.next_payment(Date.new(2013,11,2)).must_equal Date.new(2013,12,1)
+    end
+
   end
 
-  test "paying on day of month will goto next month if needed" do
-
-    assert_equal Date.new(2014,1,15), @b.next_payment(Date.new(2013,12,16))
-  end
-
-  test "will pick closest previous day if day is out of range" do
-    @b.pay_monthly(day:31)
-    assert_equal Date.new(2013,12,1), @b.next_payment(Date.new(2013,11,2))
-  end
 end
+
