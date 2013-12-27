@@ -14,6 +14,10 @@ class RecurringTransaction
     pay_day = from.advance(days: @pay_on_day - from.day)
     pay_day < from ? pay_day.next_month : pay_day
   end
+
+  def occurs_on
+    "#{@pay_on_day.ordinalize} of each month"
+  end
 end
 
 describe RecurringTransaction do
@@ -22,7 +26,7 @@ describe RecurringTransaction do
     @tx = RecurringTransaction.new(description: 'Water', amount: 50.00)
   end
 
-  describe "recurs on a certain day of the month" do
+  describe "on a certain day of the month" do
 
     before do
       @tx.pay_monthly(day: 15)
@@ -41,7 +45,12 @@ describe RecurringTransaction do
       @tx.next_payment(Date.new(2013,11,2)).must_equal Date.new(2013,12,1)
     end
 
+    it "describe when it occurs" do
+      @tx.occurs_on.must_equal "15th of each month"
+    end
+
   end
+
 
 end
 
