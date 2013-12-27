@@ -1,4 +1,6 @@
 BudgetTranquility::Application.routes.draw do
+  resources :recurring_transactions
+
   resources :widgets
 
   get  'login', to: "sessions#new", as: 'login'

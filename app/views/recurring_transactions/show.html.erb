@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recurring_transaction.description %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @recurring_transaction.amount %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_recurring_transaction_path(@recurring_transaction) %> |
+<%= link_to 'Back', recurring_transactions_path %>

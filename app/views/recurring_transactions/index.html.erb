@@ -1,0 +1,29 @@
+<h1>Listing recurring_transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recurring_transactions.each do |recurring_transaction| %>
+      <tr>
+        <td><%= recurring_transaction.description %></td>
+        <td><%= recurring_transaction.amount %></td>
+        <td><%= link_to 'Show', recurring_transaction %></td>
+        <td><%= link_to 'Edit', edit_recurring_transaction_path(recurring_transaction) %></td>
+        <td><%= link_to 'Destroy', recurring_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recurring transaction', new_recurring_transaction_path %>
