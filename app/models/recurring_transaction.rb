@@ -21,6 +21,9 @@ class RecurringTransaction < ActiveRecord::Base
       start_on = params[:schedule][:start_on]
       start_on = Date.strptime(start_on,"%m/%d/%Y")
       self.pay_biweekly day_of_week: dow, start_on: start_on
+    elsif params[:schedule_type] == 'monthly'
+      day = params[:schedule][:day].to_i
+      self.pay_monthly(day: day)
     end
   end
 
