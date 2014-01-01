@@ -15,6 +15,15 @@ class RecurringTransaction < ActiveRecord::Base
     @schedule = WeeklySchedule.new(day_of_week: day_of_week, start_on: start_on)
   end
 
+  def pay_from_params(params) 
+    if params[:schedule_type] == 'weekly'
+      dow = params[:schedule][:day_of_week].to_sym
+      start_on = params[:schedule][:start_on]
+      start_on = Date.strptime(start_on,"%m/%d/%Y")
+      self.pay_biweekly day_of_week: dow, start_on: start_on
+    end
+  end
+
   def next_occurrence(from)
     @schedule.next(from)
   end

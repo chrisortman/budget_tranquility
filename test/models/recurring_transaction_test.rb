@@ -12,4 +12,13 @@ class RecurringTransactionTest < ActiveSupport::TestCase
     tx = RecurringTransaction.find_by(description: 'Water Bill')
     assert_equal '20th of each month', tx.occurs_on
   end
+
+  test "can create pay schedule from params hash" do
+    tx = RecurringTransaction.new
+    tx.pay_from_params({:schedule_type => 'weekly', :schedule => {
+      :day_of_week => 'monday', :start_on => '1/15/2014'
+    }})
+
+    assert_equal 'Every other Monday', tx.occurs_on
+  end
 end

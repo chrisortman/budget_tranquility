@@ -30,6 +30,6 @@ class WeeklySchedule
   end
 
   def occurs_on
-    ""
+    "Every other #{@pay_weekly.capitalize}"
   end
 end
