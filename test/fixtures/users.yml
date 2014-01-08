@@ -8,3 +8,8 @@ two:
   email: MyString
   name: MyString
   hashed_password: MyString
+chris:
+  email: chris@test.lan
+  name: Chris
+  hashed_password: $2a$10$wkwoZKBCSZ9bqa8QSccJ/.vWGkixK/WsZdLHXP.TfACMumKlDYqUG
+  

@@ -4,6 +4,8 @@ class RecurringTransactionTest < ActiveSupport::TestCase
   setup do
     tx = RecurringTransaction.new(description: 'Water Bill', amount: 50.00)
     tx.pay_monthly(day: 20)
+    tx.transaction_type = :bill
+    tx.user = users(:chris)
     tx.save!
 
   end

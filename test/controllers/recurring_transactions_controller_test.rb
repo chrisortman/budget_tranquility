@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RecurringTransactionsControllerTest < ActionController::TestCase
   setup do
-    @recurring_transaction = recurring_transactions(:one)
+    @recurring_transaction = recurring_transactions(:chris_paycheck)
   end
 
   test "should get index" do

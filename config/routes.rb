@@ -1,4 +1,10 @@
 BudgetTranquility::Application.routes.draw do
+  get "setup/index"
+  get "setup/paychecks"
+  get "setup/bills"
+  get "setup/envelopes"
+  get "home/index"
+  get "home/setup"
   resources :recurring_transactions
 
   resources :widgets

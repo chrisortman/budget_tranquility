@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227130117) do
+ActiveRecord::Schema.define(version: 20140108035250) do
 
   create_table "recurring_transactions", force: true do |t|
     t.string   "description"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20131227130117) do
     t.string   "schedule_json"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "transaction_type"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

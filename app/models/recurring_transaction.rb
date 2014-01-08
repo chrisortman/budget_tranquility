@@ -2,6 +2,8 @@ require 'schedule'
 
 class RecurringTransaction < ActiveRecord::Base
   
+  belongs_to :user
+  
   before_save :serialize_schedule
   after_find  :deserialize_schedule
 
