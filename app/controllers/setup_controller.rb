@@ -3,6 +3,7 @@ class SetupController < ApplicationController
   end
 
   def paychecks
+    @new_paycheck = RecurringTransaction.new(transaction_type: :paycheck)
   end
 
   def bills

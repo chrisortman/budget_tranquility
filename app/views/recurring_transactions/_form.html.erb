@@ -1,5 +1,11 @@
 <%= form_for(@recurring_transaction) do |f| %>
   <legend></legend>
+  <%= f.hidden_field :user_id %>
+
+  <div class="form-group">
+    <%= f.label :transaction_type, 'Type' %>
+    <%= f.select :transaction_type, [ [:paycheck, 'Paycheck'], [:bill, 'Bill'] ] %>
+  </div>
 
   <div class="form-group">
     <%= f.label :description %>
@@ -18,8 +24,7 @@
   <div class="radio">
     <label class="radio-inline">
 
-      <input type="radio" name="schedule_type" id="optionsRadios1" 
-             value="weekly" checked>
+    <input type="radio" name="schedule[schedule_type]" value="weekly" />
  
         Every
         <input type="text" placeholder="2" style="width:40px">
@@ -40,9 +45,9 @@
    <div class="radio">
     <label class="radio-inline">
 
-      <input type="radio" name="schedule" id="optionsRadios1" value="option1" checked>
+      <input type="radio" name="schedule[schedule_type]" value="monthly" />
       On the
-      <input type="text" placeholder="1st" style="width:40px"> of each month
+      <input type="text" name="schedule[day]" placeholder="1st" style="width:40px"> of each month
     </label>
   </div>
 

@@ -15,5 +15,5 @@ BudgetTranquility::Application.routes.draw do
   get  'register', to: "registration#new", as: 'register'
   post 'register', to: "registration#create"
   get 'home', to: "home#index", as: 'home'
-  root :to => 'visitors#new'
+  root :to => 'home#index'
 end

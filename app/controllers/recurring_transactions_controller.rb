@@ -25,6 +25,8 @@ class RecurringTransactionsController < ApplicationController
   # POST /recurring_transactions.json
   def create
     @recurring_transaction = RecurringTransaction.new(recurring_transaction_params)
+    @recurring_transaction.user_id = session[:user_id]
+    @recurring_transaction.pay_from_params params[:schedule]
 
     respond_to do |format|
       if @recurring_transaction.save
@@ -69,6 +71,10 @@ class RecurringTransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recurring_transaction_params
-      params.require(:recurring_transaction).permit(:description, :amount, :schedule)
+      params.require(:recurring_transaction).permit(:description, :amount, :schedule,:transaction_type)
+    end
+
+    def schedule_params
+      params.require(:schedule).permit(:day_of_week,:start_on,:day,:schedule_type)
     end
 end

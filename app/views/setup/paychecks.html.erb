@@ -1,2 +1,42 @@
-<h1>Setup#paychecks</h1>
-<p>Find me in app/views/setup/paychecks.html.erb</p>
+<div class="row">
+  <div class="page-header">
+    <h4>Setup</h4>
+  </div>
+</div>
+
+<%= form_for(@new_paycheck) do |f| %>
+  <legend>New Paycheck</legend>
+
+   <%= f.hidden_field :transaction_type %>
+
+   <div class="form-group">
+     <%= f.label :description %>
+     <%= f.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
+   </div>
+
+   <div class="form-group">
+    <label class="radio-inline">
+
+      <input type="radio" name="schedule_type" id="optionsRadios1" 
+             value="weekly" checked>
+ 
+        Every
+        <input type="text" placeholder="2" style="width:40px">
+        weeks on
+        <select name="schedule[day_of_week]">
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+        starting from <input name="schedule[start_on]"type="date" placeholder="1/1/2014">
+    </label>
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary">Add Paycheck</button>
+<% end %>
