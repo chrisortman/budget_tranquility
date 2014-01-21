@@ -20,6 +20,21 @@ class HomeController < ApplicationController
           @bill_total = 0
         end
 
+        envelopes = Envelope.find_all_by_user_id(user.id)
+        if envelopes
+          @envelope_count = envelopes.size
+          @envelope_total = envelopes.inject(0) do |sum,n| 
+            if n.per_check
+              sum += n.per_check
+            elsif n.per_month
+              sum += n.per_month
+            end
+          end
+        else
+          @envelope_count = 0
+          @envelope_total = 0
+        end
+
       else
         @paycheck_count = 0
         @paycheck_total = 0

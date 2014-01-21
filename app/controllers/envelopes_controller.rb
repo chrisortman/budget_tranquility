@@ -24,7 +24,9 @@ class EnvelopesController < ApplicationController
   # POST /envelopes
   # POST /envelopes.json
   def create
+
     @envelope = Envelope.new(envelope_params)
+    @envelope.user_id = session[:user_id]
 
     respond_to do |format|
       if @envelope.save
