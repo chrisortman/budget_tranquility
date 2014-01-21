@@ -1,4 +1,6 @@
 BudgetTranquility::Application.routes.draw do
+  resources :envelopes
+
   get "setup/index"
   get "setup/paychecks"
   get "setup/bills"

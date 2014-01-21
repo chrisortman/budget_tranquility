@@ -26,6 +26,11 @@ class RecurringTransactionsController < ApplicationController
   def create
     @recurring_transaction = RecurringTransaction.new(recurring_transaction_params)
     @recurring_transaction.user_id = session[:user_id]
+    puts "==========\n"
+    puts "#{params.class}\n"
+    puts "===========\n"
+    puts params
+
     @recurring_transaction.pay_from_params params[:schedule]
 
     respond_to do |format|

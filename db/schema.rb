@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108035250) do
+ActiveRecord::Schema.define(version: 20140121040454) do
+
+  create_table "envelopes", force: true do |t|
+    t.string   "label"
+    t.decimal  "per_month"
+    t.decimal  "per_check"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "recurring_transactions", force: true do |t|
     t.string   "description"

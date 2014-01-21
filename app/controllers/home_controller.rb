@@ -26,6 +26,8 @@ class HomeController < ApplicationController
         @bill_count = 0
         @bill_total = 0
       end
+
+     
     else
       redirect_to login_url
     end

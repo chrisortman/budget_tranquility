@@ -18,7 +18,10 @@ class RecurringTransactionsControllerTest < ActionController::TestCase
 
   test "should create recurring_transaction" do
     assert_difference('RecurringTransaction.count') do
-      post :create, recurring_transaction: { amount: @recurring_transaction.amount, description: @recurring_transaction.description }
+      post :create, { recurring_transaction: { amount:      @recurring_transaction.amount, 
+                                               description:  @recurring_transaction.description, },
+                      schedule: {schedule_type:  'monthly',day: 2 }
+                    }
     end
 
     assert_redirected_to recurring_transaction_path(assigns(:recurring_transaction))

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @envelope.label %>
+</p>
+
+<p>
+  <strong>Per month:</strong>
+  <%= @envelope.per_month %>
+</p>
+
+<p>
+  <strong>Per check:</strong>
+  <%= @envelope.per_check %>
+</p>
+
+<%= link_to 'Edit', edit_envelope_path(@envelope) %> |
+<%= link_to 'Back', envelopes_path %>

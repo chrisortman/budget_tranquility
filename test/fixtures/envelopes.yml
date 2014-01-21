@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+groceries:
+  label: Groceries
+  per_month: 200.00
+  per_check: 
+  user: chris
+
+clothing:
+  label: Clothing
+  per_month: 
+  per_check: 50
+  user: chris

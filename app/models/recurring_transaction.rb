@@ -18,6 +18,7 @@ class RecurringTransaction < ActiveRecord::Base
   end
 
   def pay_from_params(params) 
+
     if params[:schedule_type] == 'weekly'
       dow = params[:day_of_week].to_sym
       start_on = params[:start_on]
